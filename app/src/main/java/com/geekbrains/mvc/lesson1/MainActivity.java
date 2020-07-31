@@ -1,4 +1,4 @@
-package com.geekbrains.mvc;
+package com.geekbrains.mvc.lesson1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.geekbrains.mvc.R;
 
 public class MainActivity extends AppCompatActivity implements MainView, View.OnClickListener {
 
@@ -53,21 +55,20 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
                 mPresenter.buttonClick(Presenter.ButtonIndex.THIRD);
                 break;
         }
-
     }
 
     @Override
-    public void setButtonText(Presenter.ButtonIndex btnIndex, int value) {
-        switch (btnIndex) {
-            case FIRST:
-                btnCounter1.setText("Количество = " + value);
-                break;
-            case SECOND:
-                btnCounter2.setText("Количество = " + value);
-                break;
-            case THIRD:
-                btnCounter3.setText("Количество = " + value);
-                break;
-        }
+    public void setFirstButtonText(Presenter.ButtonIndex btnIndex, int value) {
+        btnCounter1.setText("Количество = " + value);
+    }
+
+    @Override
+    public void setSecondButtonText(Presenter.ButtonIndex btnIndex, int value) {
+        btnCounter2.setText("Количество = " + value);
+    }
+
+    @Override
+    public void setThirdButtonText(Presenter.ButtonIndex btnIndex, int value) {
+        btnCounter3.setText("Количество = " + value);
     }
 }
